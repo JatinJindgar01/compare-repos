@@ -1,0 +1,31 @@
+<?php
+include_once "apiHelper/payment_mode/BasePaymentMode.php";
+class CreditPaymentMode extends BasePaymentMode
+{
+	public function __construct()
+	{
+		parent::__construct();
+	}
+
+	public function setParams($params)
+	{
+		parent::setParams($params);
+		//TODO: set attributes here
+	}
+
+	public function getPaymentType()
+	{
+		return PAYMENT_MODE_CREDIT;
+	}
+
+	/**
+	 * This will validate attributes as well
+	 * @see BasePaymentMode::validate()
+	 */
+	function validate()
+	{
+		parent::validate();
+	
+	}
+}
+?>

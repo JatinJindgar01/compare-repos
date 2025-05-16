@@ -1,0 +1,11 @@
+Package: api-resource
+Source: api
+Version: 1.24.0~20250515203840.10
+Architecture: all
+Maintainer: API DEV <api-dev@capillarytech.com>
+Installed-Size: 745
+Section: unknown
+Priority: extra
+Homepage: <insert the upstream URL, if relevant>
+Description: REST Resources of APIs
+ API restful resources

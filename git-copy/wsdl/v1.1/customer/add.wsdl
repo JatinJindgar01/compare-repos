@@ -1,0 +1,156 @@
+<wsdl:description xmlns:wsdl="http://www.w3.org/ns/wsdl" xmlns:wsoap="http://www.w3.org/ns/wsdl/soap" xmlns:whttp="http://www.w3.org/ns/wsdl/http" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://new.webservice.namespace" targetNamespace="http://new.webservice.namespace">
+	
+	<wsdl:types>
+		<xs:schema xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified">
+		
+			<xs:element name="root" type="CustomerAddRequest"/>		
+			<xs:element name="response" type="CustomerAddResponse"/>
+			
+			<xs:simpleType name="dateTime">
+		        <xs:restriction base="xs:string">
+		            <xs:pattern value="(\d{4})-([0,1][0-9])-([0-3][0-9]) ([0-2][0-9]):([0-5][0-9]):([0-5][0-9])"></xs:pattern>
+		        </xs:restriction>
+		    </xs:simpleType>
+			
+			<xs:complexType name="CustomerAddRequest">
+				<xs:sequence>
+					<xs:element name="customer" type="RequestCustomer" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="CustomerAddResponse">
+				<xs:sequence>
+					<xs:element name="status" type="Status" minOccurs="1"/>
+					<xs:element name="customers" type="ArrResponseCustomer" minOccurs="0"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="RequestCustomer">
+				<xs:all>
+					<xs:element name="mobile" type="xs:string" minOccurs="0" />
+					<xs:element name="email" type="xs:string" minOccurs="0" />
+					<xs:element name="external_id" type="xs:string" minOccurs="0" />
+					<xs:element name="id" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="firstname" type="xs:string" minOccurs="0" />
+					<xs:element name="lastname" type="xs:string" minOccurs="0" />
+					<!-- for v1.1 changed sex to gender -->
+					<xs:element name="gender" type="xs:string" minOccurs="0" />
+					<xs:element name="registered_on" type="dateTime" minOccurs="0" />
+					<xs:element name="custom_fields" type="ArrCustomField" minOccurs="0" />					
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="ArrResponseCustomer">
+				<xs:sequence>
+					<xs:element name="customer" type="ResponseCustomer" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="ResponseCustomer">
+				<xs:all>
+					<xs:element name="user_id" type="xs:integer" minOccurs="0" />
+					<xs:element name="mobile" type="xs:string" minOccurs="0" />
+					<xs:element name="email" type="xs:string" minOccurs="0" />
+					<xs:element name="external_id" type="xs:string" minOccurs="0" />
+					<!-- added gender in v1.1 -->
+					<xs:element name="gender" type="xs:string" minOccurs="0" />
+					<!-- TODO: check registered_on for v1 and v1.1 -->
+					<xs:element name="registered_on" type="dateTime" minOccurs="0" />
+					<xs:element name="item_status" type="Status" minOccurs="1" />
+					<xs:element name="side_effects" type="ArrSideEffect" minOccurs="0" />
+					
+					<xs:element name="firstname" type="xs:string" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="lastname" type="xs:string" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="lifetime_points" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="lifetime_purchases" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="loyalty_points" type="xs:integer" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="current_slab" type="xs:string" minOccurs="0" maxOccurs="1"/>
+					<xs:element name="updated_on" type="dateTime" minOccurs="0" maxOccurs="1"/>					
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="ArrCustomField">
+				<xs:sequence>
+					<xs:element name="field" type="CustomField" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="CustomField">
+				<xs:sequence>
+					<xs:element name="name" type="xs:string" minOccurs="0" />
+					<xs:element name="value" type="xs:string" minOccurs="0" />
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="ArrSideEffect">
+				<xs:sequence>
+					<xs:element name="effect" type="SideEffect" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="SideEffect">
+				<xs:all>
+					<xs:element name="type" type="xs:string" minOccurs="0" />
+					
+					<!-- start element for "type = points" -->
+					<xs:element name="awarded_points" type="xs:integer" minOccurs="0" />
+					<xs:element name="total_points" type="xs:integer" minOccurs="0" />
+					<!-- end element for "type = points" -->
+					
+					<!-- start element for "type = coupon" -->
+					
+					<xs:element name="coupon_code" type="xs:string" minOccurs="0" />
+					<xs:element name="description" type="xs:string" minOccurs="0" />
+					<xs:element name="coupon_type" type="xs:string" minOccurs="0" />
+					<!-- discount_code added in v1.1 -->
+					<xs:element name="discount_code" type="xs:string" minOccurs="0" />
+					<!-- coupon_value added in v1.1 -->
+					<xs:element name="coupon_value" type="xs:string" minOccurs="0" />
+					<xs:element name="valid_till" type="dateTime" minOccurs="0" />
+					<!-- changed coupon_id to id -->
+					<xs:element name="id" type="xs:integer" minOccurs="0" />
+					
+					<!-- end element for "type = coupon" -->
+					
+					<!-- removed element for "type = DVS_Voucher" -->
+				</xs:all>
+			</xs:complexType>
+			
+			
+			<xs:complexType name="Status">
+				<xs:sequence>
+					<xs:element name="success" type="xs:boolean" minOccurs="1" />
+					<xs:element name="code" type="xs:integer" minOccurs="1" />
+					<xs:element name="message" type="xs:string" minOccurs="1" />
+				</xs:sequence>
+			</xs:complexType>			
+			
+		</xs:schema>
+	</wsdl:types>
+	
+	<wsdl:interface name="CustomerAddInterface">
+		<wsdl:operation name="CustomerAdd" 
+			pattern="http://www.w3.org/ns/wsdl/in-out">
+				<wsdl:input messageLabel="In" element="root"/>
+				<wsdl:output messageLabel="Out" element="response"/>
+		</wsdl:operation>
+	</wsdl:interface>
+	
+	<wsdl:binding name="CustomerAddBinding" 
+		interface="tns:CustomerAddInterface" 
+		type="http://www.w3.org/ns/wsdl/http">
+			<wsdl:operation ref="tns:CustomerAdd"
+				whttp:location="/v1.1/customer/add?format=xml" 
+				whttp:method="POST" 
+				whttp:inputSerialization="application/xml" 
+				whttp:outputSerialization="application/xml" />
+	</wsdl:binding>
+
+	<wsdl:service name="CustomerAddService" 
+		interface="tns:CustomerAddInterface">
+			<wsdl:endpoint name="CustomerAddEndPoint" 
+				binding="tns:CustomerAddBinding" 
+				address="http://testing.capillary.in"/>
+	</wsdl:service>
+	
+</wsdl:description>

@@ -1,0 +1,112 @@
+<wsdl:description xmlns:wsdl="http://www.w3.org/ns/wsdl" xmlns:wsoap="http://www.w3.org/ns/wsdl/soap" xmlns:whttp="http://www.w3.org/ns/wsdl/http" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://new.webservice.namespace" targetNamespace="http://new.webservice.namespace">
+	
+	<wsdl:types>
+		<xs:schema xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified">
+		
+			<xs:element name="CouponGet" type="CouponGetRequest"/>		
+			<xs:element name="response" type="CouponGetResponse"/>
+			<xs:element name="authorization_basic" type="xs:string"/>
+			
+			<xs:simpleType name="dateTime">
+		        <xs:restriction base="xs:string">
+		            <xs:pattern value="(\d{4})-([0,1][0-9])-([0-3][0-9]) ([0-2][0-9]):([0-5][0-9]):([0-5][0-9])"></xs:pattern>
+		        </xs:restriction>
+		    </xs:simpleType>
+			
+			<xs:complexType name="CouponGetRequest">
+				<xs:all>
+					<xs:element name="id" type="xs:string" minOccurs="0" />
+					<xs:element name="code" type="xs:string" minOccurs="0" />
+					<xs:element name="user_id" type="xs:boolean" minOccurs="0" />
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="CouponGetResponse">
+				<xs:sequence>
+					<xs:element name="status" type="Status" minOccurs="0"/>
+					<xs:element name="coupons" type="ArrResponseCoupon" minOccurs="0"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="ArrResponseCoupon">
+				<xs:sequence>
+					<xs:element name="coupon" type="ResponseCoupon" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="ResponseCoupon">
+				<xs:all>
+					<xs:element name="code" type="xs:string" minOccurs="0" />
+					<xs:element name="id" type="xs:integer" minOccurs="0" />
+					<xs:element name="valid_till" type="xs:string" minOccurs="0" />
+					<xs:element name="issued_on" type="dateTime" minOccurs="0" />
+					<xs:element name="customer" type="ResponseCustomer" minOccurs="0" />
+					<xs:element name="is_absolute" type="xs:boolean" minOccurs="0" />
+					<xs:element name="value" type="xs:double" minOccurs="0" />
+					<xs:element name="redemption_info" type="RedemptionInfo" minOccurs="0" />
+					<xs:element name="item_status" type="Status" minOccurs="1" />
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="ResponseCustomer">
+				<xs:all>
+					<xs:element name="name" type="xs:string" minOccurs="0" />
+					<xs:element name="mobile" type="xs:string" minOccurs="0" />
+					<xs:element name="email" type="xs:string" minOccurs="0" />
+					<xs:element name="external_id" type="xs:string" minOccurs="0" />
+					<xs:element name="user_id" type="xs:integer" minOccurs="0" />
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="RedemptionInfo">
+				<xs:all>
+					<xs:element name="redeemed" type="xs:boolean" minOccurs="0" />
+					<xs:element name="redeemed_on" type="dateTime" minOccurs="0" />
+					<xs:element name="redeemed_at" type="xs:string" minOccurs="0" />
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="Status">
+				<xs:all>
+					<xs:element name="success" type="xs:boolean" minOccurs="0" />
+					<xs:element name="status" type="xs:boolean" minOccurs="0" />
+					<xs:element name="code" type="xs:integer" minOccurs="1" />
+					<xs:element name="message" type="xs:string" minOccurs="1" />
+				</xs:all>
+			</xs:complexType>			
+			
+		</xs:schema>
+	</wsdl:types>
+	
+	<wsdl:interface name="CouponGetInterface">
+		<wsdl:operation name="CouponGet" 
+			pattern="http://www.w3.org/ns/wsdl/in-out">
+				<wsdl:input messageLabel="In" element="CouponGet" />
+				<wsdl:output messageLabel="Out" element="response"/>
+		</wsdl:operation>
+	</wsdl:interface>
+	
+	<wsdl:binding name="CouponGetBinding" 
+		interface="tns:CouponGetInterface" 
+		type="http://www.w3.org/ns/wsdl/http">
+			<wsdl:operation ref="tns:CouponGet"
+				whttp:location="/v1/coupon/get?format=xml" 
+				whttp:method="GET" 
+				whttp:queryParameterSeparator="&amp;" 
+				whttp:inputSerialization="application/x-www-form-urlencoded"
+				whttp:outputSerialization="application/xml" >
+					<wsdl:input messageLabel="In">
+						<whttp:header name="Authorization" type="authorization_basic" required="true" />
+					</wsdl:input>
+			</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="CouponGetService" 
+		interface="tns:CouponGetInterface">
+			<wsdl:endpoint name="CouponGetEndPoint" 
+				binding="tns:CouponGetBinding" 
+				address="http://testing.capillary.in"/>
+	</wsdl:service>
+	
+</wsdl:description>
+

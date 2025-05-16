@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.capillarytech.com/api"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.capillarytech.com/api" xmlns:pref="http://www.capillarytech.com/common">
+	<import schemaLocation="../common.xsd" namespace="http://www.capillarytech.com/common"></import>
+
+	<element name="root">
+		<complexType>
+			<sequence>
+				<element name="transaction" type="tns:Transaction" maxOccurs="unbounded" minOccurs="1"></element>
+			</sequence>
+		</complexType>
+	</element>
+	
+
+	<complexType name="Transaction">
+		<all>
+		    <element name="bill_client_id" type="string" maxOccurs="1"
+                minOccurs="0"></element>
+			<element name="type" type="string"></element>
+			<element name="number" type="string"></element>
+			<element name="return_type" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="amount" type="double"></element>
+			<element name="credit_note" type="string" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="notes" type="string" maxOccurs="1" minOccurs="0"></element>
+			<element name="billing_time" type="pref:dateTime" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="gross_amount" type="double" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="discount" type="double" maxOccurs="1"
+				minOccurs="0">
+			</element>
+			<element name="customer" type="pref:CustomerIdentifiers"></element>
+			<element name="line_items" type="tns:ArrReturnBillLineitem"
+				maxOccurs="1" minOccurs="0">
+			</element>
+			<element name="associate_details"
+				type="pref:AssociateDetails" maxOccurs="1" minOccurs="0">
+			</element>
+		</all>
+
+	</complexType>
+
+	<complexType name="ReturnBillLineitem">
+		<all>
+			<element name="item_code" type="string"></element>
+			<element name="qty" type="string"></element>
+			<element name="rate" type="string"></element>
+		</all>
+	</complexType>
+
+	<complexType name="ArrReturnBillLineitem">
+		<sequence>
+			<element name="line_item" type="tns:ReturnBillLineitem" maxOccurs="unbounded" minOccurs="1"></element>
+		</sequence>
+	</complexType>
+</schema>

@@ -1,0 +1,144 @@
+<wsdl:description xmlns:wsdl="http://www.w3.org/ns/wsdl" xmlns:wsoap="http://www.w3.org/ns/wsdl/soap" xmlns:whttp="http://www.w3.org/ns/wsdl/http" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://new.webservice.namespace" targetNamespace="http://new.webservice.namespace">
+	
+	<wsdl:types>
+		<xs:schema xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified">
+		
+			<xs:element name="TransactionGet" type="TransactionGetRequest"/>		
+			<xs:element name="response" type="TransactionGetResponse"/>
+			
+			<xs:complexType name="TransactionGetRequest">
+				<xs:all>
+					<xs:element name="id" type="xs:string" minOccurs="0" />
+					<xs:element name="user_id" type="xs:boolean" minOccurs="0" />
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="TransactionGetResponse">
+				<xs:sequence>
+					<xs:element name="status" type="Status" minOccurs="0"/>
+					<xs:element name="transactions" type="ArrResponseTransaction" minOccurs="0"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			
+			
+			<xs:complexType name="ArrResponseTransaction">
+				<xs:sequence>
+					<xs:element name="transaction" type="ResponseTransaction" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="ResponseTransaction">
+				<xs:all>
+					<xs:element name="transaction_id" type="xs:integer" minOccurs="0" />
+					<xs:element name="transaction_number" type="xs:string" minOccurs="0" />
+					<xs:element name="type" type="xs:string" minOccurs="0" />
+					<xs:element name="customer" type="ResponseCustomer" minOccurs="0" />
+					<xs:element name="item_status" type="Status" minOccurs="1" />
+					<xs:element name="amount" type="xs:double" minOccurs="0" />
+					<xs:element name="notes" type="xs:string" minOccurs="0" />
+					<xs:element name="billing_time" type="dateTime" minOccurs="0" />
+					<xs:element name="gross_amount" type="xs:double" minOccurs="0" />
+					<xs:element name="discount" type="xs:double" minOccurs="0" />
+					<xs:element name="store" type="xs:string" minOccurs="0" />
+					<xs:element name="custom_fields" type="ArrCustomField" minOccurs="0" />
+					<xs:element name="line_items" type="ArrLineItem" minOccurs="0" />
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="ResponseCustomer">
+				<xs:all>
+					<xs:element name="user_id" type="xs:integer" minOccurs="0" />
+					<xs:element name="email" type="xs:string" minOccurs="0" />
+					<xs:element name="mobile" type="xs:string" minOccurs="0" />
+					<xs:element name="external_id" type="xs:string" minOccurs="0" />
+					<xs:element name="firstname" type="xs:string" minOccurs="0" />
+					<xs:element name="lastname" type="xs:string" minOccurs="0" />
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="ArrCustomField">
+				<xs:sequence>
+					<xs:element name="field" type="CustomField" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="CustomField">
+				<xs:sequence>
+					<xs:element name="name" type="xs:string" minOccurs="0" />
+					<xs:element name="value" type="xs:string" minOccurs="0" />
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="ArrLineItem">
+				<xs:sequence>
+					<xs:element name="line_item" type="LineItem" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="LineItem">
+				<xs:all>
+					<xs:element name="serial" type="xs:string" minOccurs="0" />
+					<xs:element name="item_code" type="xs:string" minOccurs="0" />
+					<xs:element name="description" type="xs:string" minOccurs="0" />
+					<xs:element name="qty" type="xs:string" minOccurs="0" />
+					<xs:element name="rate" type="xs:string" minOccurs="0" />
+					<xs:element name="value" type="xs:string" minOccurs="0" />
+					<xs:element name="discount" type="xs:string" minOccurs="0" />
+					<xs:element name="amount" type="xs:string" minOccurs="0" />
+					<xs:element name="attributes" type="ArrAttribute" minOccurs="0" />
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="ArrAttribute">
+				<xs:sequence>
+					<xs:element name="attribute" type="Attribute" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="Attribute">
+				<xs:sequence>
+					<xs:element name="name" type="xs:string" minOccurs="0" />
+					<xs:element name="value" type="xs:string" minOccurs="0" />
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="Status">
+				<xs:sequence>
+					<xs:element name="success" type="xs:boolean" minOccurs="1" />
+					<xs:element name="code" type="xs:integer" minOccurs="1" />
+					<xs:element name="message" type="xs:string" minOccurs="1" />
+				</xs:sequence>
+			</xs:complexType>			
+			
+		</xs:schema>
+	</wsdl:types>
+	
+	<wsdl:interface name="TransactionGetInterface">
+		<wsdl:operation name="TransactionGet" 
+			pattern="http://www.w3.org/ns/wsdl/in-out">
+				<wsdl:input messageLabel="In" element="TransactionGet"/>
+				<wsdl:output messageLabel="Out" element="response"/>
+		</wsdl:operation>
+	</wsdl:interface>
+	
+	<wsdl:binding name="TransactionGetBinding" 
+		interface="tns:TransactionGetInterface" 
+		type="http://www.w3.org/ns/wsdl/http">
+			<wsdl:operation ref="tns:TransactionGet"
+				whttp:location="/v1/transaction/get?format=xml" 
+				whttp:method="GET" 
+				whttp:queryParameterSeparator="&amp;" 
+				whttp:inputSerialization="application/x-www-form-urlencoded"
+				whttp:outputSerialization="application/xml" />
+	</wsdl:binding>
+
+	<wsdl:service name="TransactionGetService" 
+		interface="tns:TransactionGetInterface">
+			<wsdl:endpoint name="TransactionGetEndPoint" 
+				binding="tns:TransactionGetBinding" 
+				address="http://testing.capillary.in"/>
+	</wsdl:service>
+	
+</wsdl:description>
+

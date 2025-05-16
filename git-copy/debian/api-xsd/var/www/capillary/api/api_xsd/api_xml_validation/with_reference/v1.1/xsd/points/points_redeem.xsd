@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.capillarytech.com/api"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.capillarytech.com/api" xmlns:pref="http://www.capillarytech.com/common">
+	<import schemaLocation="../common.xsd" namespace="http://www.capillarytech.com/common"></import>
+
+	<element name="root">
+		<complexType>
+			<sequence>
+				<element name="redeem" type="tns:Redeem"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+	<complexType name="Redeem">
+		<all>
+			<element name="points_redeemed" type="string"></element>
+			<element name="transaction_number" type="string"></element>
+			<element name="customer" type="pref:CustomerIdentifiers"></element>
+			<element name="notes" type="string"></element>
+			<element name="validation_code" type="string"></element>
+			<element name="redemption_time" type="pref:dateTime"></element>
+		</all>
+	</complexType>
+</schema>
