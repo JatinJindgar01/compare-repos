@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.capillarytech.com/api"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.capillarytech.com/api" xmlns:pref="http://www.capillarytech.com/common">
+
+	<element name="root">
+		<complexType>
+			<sequence>
+				<element name="coupon" type="tns:Coupon"></element>
+			</sequence>
+		</complexType>
+	</element>
+	
+	<complexType name="CustomerIdentifiers">
+        <all>
+            <element name="mobile" type="string" maxOccurs="1" minOccurs="0"></element>
+            <element name="email" type="string" maxOccurs="1" minOccurs="0"></element>
+            <element name="external_id" type="string" maxOccurs="1" minOccurs="0"></element>
+            <element name="user_id" type="long" maxOccurs="1" minOccurs="0"></element>
+        </all>
+    </complexType>
+    
+    <complexType name="CustomField">
+        <all>
+            <element name="name" type="string"></element>
+            <element name="value" type="string"></element>
+        </all>
+    </complexType>
+    
+    <complexType name="ArrCustomFields">
+        <sequence>
+            <element name="field" type="tns:CustomField" maxOccurs="unbounded" minOccurs="1"></element>
+        </sequence>
+    </complexType>
+
+	<complexType name="Coupon">
+		<sequence>
+			<element name="code" type="string"></element>
+			<element name="validation_code" type="string"></element>
+			<element name="customer" type="tns:CustomerIdentifiers"></element>
+			<element name="custom_fields" type="tns:ArrCustomFields" maxOccurs="1" minOccurs="0"></element>
+			<element name="transaction" type="tns:Transaction"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="Transaction">
+		<sequence>
+			<element name="number" type="string"></element>
+			<element name="amount" type="double"></element>
+		</sequence>
+	</complexType>
+</schema>

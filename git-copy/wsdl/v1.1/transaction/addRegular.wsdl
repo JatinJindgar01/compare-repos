@@ -1,0 +1,231 @@
+<wsdl:description xmlns:wsdl="http://www.w3.org/ns/wsdl" xmlns:wsoap="http://www.w3.org/ns/wsdl/soap" xmlns:whttp="http://www.w3.org/ns/wsdl/http" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://new.webservice.namespace" targetNamespace="http://new.webservice.namespace">
+	
+	<wsdl:types>
+		<xs:schema xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified">
+		
+			<xs:element name="root" type="TransactionAddRegularRequest"/>		
+			<xs:element name="response" type="TransactionAddRegularResponse"/>
+			
+			<xs:simpleType name="dateTime">
+		        <xs:restriction base="xs:string">
+		            <xs:pattern value="(\d{4})-([0,1][0-9])-([0-3][0-9]) ([0-2][0-9]):([0-5][0-9]):([0-5][0-9])"></xs:pattern>
+		        </xs:restriction>
+		    </xs:simpleType>
+			
+			<xs:complexType name="TransactionAddRegularRequest">
+				<xs:sequence>
+					<xs:element name="transaction" type="RequestTransaction" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="TransactionAddRegularResponse">
+				<xs:sequence>
+					<xs:element name="status" type="Status" minOccurs="0"/>
+					<xs:element name="transactions" type="ArrResponseTransaction" minOccurs="0"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="RequestTransaction">
+				<xs:all>
+					<xs:element name="type" type="xs:string" minOccurs="0" />
+					<!-- added bill_client_id in v1.1 -->
+					<xs:element name="bill_client_id" type="xs:string" minOccurs="0" />
+					<xs:element name="number" type="xs:string" minOccurs="0" />
+					<xs:element name="amount" type="xs:double" minOccurs="0" />
+					<xs:element name="notes" type="xs:string" minOccurs="0" />
+					<xs:element name="billing_time" type="dateTime" minOccurs="0" />
+					<xs:element name="gross_amount" type="xs:double" minOccurs="0" />
+					<xs:element name="discount" type="xs:double" minOccurs="0" />
+					<xs:element name="customer" type="RequestCustomer" minOccurs="0" />
+					<xs:element name="payment_details" type="ArrPaymentDetail" minOccurs="0" />
+					<xs:element name="custom_fields" type="ArrCustomField" minOccurs="0" />
+					<xs:element name="line_items" type="ArrLineItem" minOccurs="0" />
+					<xs:element name="associate_details" type="AssociateDetail" minOccurs="0" />
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="RequestCustomer">
+				<xs:all>
+					<xs:element name="mobile" type="xs:string" minOccurs="0" />
+					<xs:element name="email" type="xs:string" minOccurs="0" />
+					<xs:element name="external_id" type="xs:string" minOccurs="0" />
+					<xs:element name="id" type="xs:integer" minOccurs="0"/>
+					<xs:element name="name" type="xs:string" minOccurs="0" />
+					<xs:element name="custom_fields" type="ArrCustomField" minOccurs="0" />					
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="ArrResponseTransaction">
+				<xs:sequence>
+					<xs:element name="transaction" type="ResponseTransaction" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="ResponseTransaction">
+				<xs:all>
+					<!-- changed transaction_id to id in v1.1 -->
+					<xs:element name="id" type="xs:string" minOccurs="0" />
+					<!-- changed transaction_number to number in v1.1 -->
+					<xs:element name="number" type="xs:string" minOccurs="0" />
+					<xs:element name="type" type="xs:string" minOccurs="0" />
+					<xs:element name="customer" type="ResponseCustomer" minOccurs="0" />
+					<xs:element name="item_status" type="Status" minOccurs="1" />
+					<xs:element name="side_effects" type="ArrSideEffect" minOccurs="0" />
+					<xs:element name="bill_client_id" type="xs:string" minOccurs="0" />
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="ResponseCustomer">
+				<xs:all>
+					<xs:element name="mobile" type="xs:string" minOccurs="0" />
+					<xs:element name="email" type="xs:string" minOccurs="0" />
+					<xs:element name="external_id" type="xs:string" minOccurs="0" />
+					<xs:element name="user_id" type="xs:string" minOccurs="0" />
+					<xs:element name="loyalty_points" type="xs:integer" minOccurs="0" />
+					<xs:element name="lifetime_points" type="xs:integer" minOccurs="0" />
+					<xs:element name="lifetime_purchases" type="xs:integer" minOccurs="0" />
+					<xs:element name="current_slab" type="xs:string" minOccurs="0" />					
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="ArrLineItem">
+				<xs:sequence>
+					<xs:element name="line_item" type="LineItem" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="LineItem">
+				<xs:all>
+					<xs:element name="serial" type="xs:string" minOccurs="0" />
+					<xs:element name="amount" type="xs:string" minOccurs="0" />
+					<xs:element name="description" type="xs:string" minOccurs="0" />
+					<xs:element name="item_code" type="xs:string" minOccurs="0" />
+					<xs:element name="qty" type="xs:integer" minOccurs="0" />
+					<xs:element name="rate" type="xs:double" minOccurs="0" />
+					<xs:element name="value" type="xs:double" minOccurs="0" />
+					<xs:element name="discount" type="xs:double" minOccurs="0" />
+					<xs:element name="attributes" type="ArrAttribute" minOccurs="0" />
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="ArrAttribute">
+				<xs:sequence>
+					<xs:element name="attribute" type="Attribute" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="Attribute">
+				<xs:all>
+					<xs:element name="name" type="xs:string" minOccurs="0" />
+					<xs:element name="value" type="xs:string" minOccurs="0" />
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="AssociateDetail">
+				<xs:all>
+					<xs:element name="code" type="xs:string" minOccurs="0" />
+					<xs:element name="name" type="xs:string" minOccurs="0" />
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="ArrPaymentDetail">
+				<xs:sequence>
+					<xs:element name="payment" type="Payment" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="Payment">
+				<xs:all>
+					<xs:element name="mode" type="xs:string" minOccurs="0" />
+					<xs:element name="value" type="xs:string" minOccurs="0" />
+					<xs:element name="notes" type="xs:string" minOccurs="0" />
+					<xs:element name="attributes" type="ArrAttribute" minOccurs="0"/>
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="ArrCustomField">
+				<xs:sequence>
+					<xs:element name="field" type="CustomField" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="CustomField">
+				<xs:all>
+					<xs:element name="name" type="xs:string" minOccurs="0" />
+					<xs:element name="value" type="xs:string" minOccurs="0" />
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="ArrSideEffect">
+				<xs:sequence>
+					<xs:element name="effect" type="SideEffect" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="SideEffect">
+				<xs:all>
+					<xs:element name="type" type="xs:string" minOccurs="0" />
+					
+					<!-- start element for "type = points" -->
+					<xs:element name="awarded_points" type="xs:integer" minOccurs="0" />
+					<xs:element name="total_points" type="xs:integer" minOccurs="0" />
+					<!-- end element for "type = points" -->
+					
+					<!-- start element for "type = coupon" -->
+					
+					<xs:element name="coupon_code" type="xs:string" minOccurs="0" />
+					<xs:element name="description" type="xs:string" minOccurs="0" />
+					<xs:element name="coupon_type" type="xs:string" minOccurs="0" />
+					<!-- discount_code added in v1.1 -->
+					<xs:element name="discount_code" type="xs:string" minOccurs="0" />
+					<!-- coupon_value added in v1.1 -->
+					<xs:element name="coupon_value" type="xs:string" minOccurs="0" />
+					<xs:element name="valid_till" type="xs:string" minOccurs="0" />
+					<!-- changed coupon_id to id -->
+					<xs:element name="id" type="xs:integer" minOccurs="0" />
+					
+					<!-- end element for "type = coupon" -->
+					
+					<!-- removed element for "type = DVS_Voucher" -->
+				</xs:all>
+			</xs:complexType>
+			
+			
+			<xs:complexType name="Status">
+				<xs:sequence>
+					<xs:element name="success" type="xs:boolean" minOccurs="1" />
+					<xs:element name="code" type="xs:integer" minOccurs="1" />
+					<xs:element name="message" type="xs:string" minOccurs="1" />
+				</xs:sequence>
+			</xs:complexType>			
+			
+		</xs:schema>
+	</wsdl:types>
+	
+	<wsdl:interface name="TransactionAddRegularInterface">
+		<wsdl:operation name="TransactionAddRegular" 
+			pattern="http://www.w3.org/ns/wsdl/in-out">
+				<wsdl:input messageLabel="In" element="root"/>
+				<wsdl:output messageLabel="Out" element="response"/>
+		</wsdl:operation>
+	</wsdl:interface>
+	
+	<wsdl:binding name="TransactionAddRegularBinding" 
+		interface="tns:TransactionAddRegularInterface" 
+		type="http://www.w3.org/ns/wsdl/http">
+			<wsdl:operation ref="tns:TransactionAddRegular"
+				whttp:location="/v1.1/transaction/add?format=xml" 
+				whttp:method="POST" 
+				whttp:inputSerialization="application/xml" 
+				whttp:outputSerialization="application/xml" />
+	</wsdl:binding>
+
+	<wsdl:service name="TransactionAddRegularService" 
+		interface="tns:TransactionAddRegularInterface">
+			<wsdl:endpoint name="TransactionAddRegularEndPoint" 
+				binding="tns:TransactionAddRegularBinding" 
+				address="http://testing.capillary.in"/>
+	</wsdl:service>
+	
+</wsdl:description>
+

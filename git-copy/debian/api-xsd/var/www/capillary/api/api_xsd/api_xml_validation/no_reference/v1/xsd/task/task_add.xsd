@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.capillarytech.com/api"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.capillarytech.com/api" xmlns:pref="http://www.capillarytech.com/common">
+
+	<element name="root">
+		<complexType>
+			<sequence>
+				<element name="task" type="tns:Task" maxOccurs="unbounded" minOccurs="1"></element>
+			</sequence>
+		</complexType>
+	</element>
+
+    <simpleType name="dateTime">
+        <restriction base="string">
+            <pattern value="(\d{4})-([0,1][0-9])-([0-3][0-9]) ([0-2][0-9]):([0-5][0-9]):([0-5][0-9])"></pattern>
+        </restriction>
+    </simpleType>
+
+	<complexType name="Task">
+		<all>
+			<element name="id" type="long" maxOccurs="1" minOccurs="0"></element>
+			<element name="local_id" type="string" maxOccurs="1" minOccurs="0"></element>
+			<element name="title" type="string"></element>
+			<element name="body" type="string"></element>
+			<element name="start_date" type="tns:dateTime"></element>
+			<element name="end_date" type="tns:dateTime"></element>
+			<element name="expiry_date" type="tns:dateTime"></element>
+			<element name="type" type="string"></element>
+			<element name="action" type="tns:Action"></element>
+			<element name="creator" type="tns:Creator"></element>
+			<element name="target_type" type="string"></element>
+			<element name="customer_ids" type="string" maxOccurs="1" minOccurs="0"></element>
+			<element name="selected_audience_groups" type="string" maxOccurs="1" minOccurs="0"></element>
+			<element name="execute_by_all" type="boolean"></element>
+			<element name="executable_by_type" type="string"></element>
+			<element name="executable_by_ids" type="string"></element>
+			<element name="possible_statuses" type="string"></element>
+			<element name="tags" type="string" maxOccurs="1" minOccurs="0"></element>
+			<element name="reminder" type="tns:Reminder" maxOccurs="1" minOccurs="0"></element>
+			<element name="entries" type="tns:ArrEntry" maxOccurs="1" minOccurs="0"></element>
+		</all>
+	</complexType>
+
+	<complexType name="Action">
+		<all>
+			<element name="type" type="string"></element>
+			<element name="template" type="string"></element>
+		</all>
+	</complexType>
+
+	<complexType name="Creator">
+		<all>
+			<element name="type" type="string"></element>
+			<element name="id" type="long"></element>
+		</all>
+	</complexType>
+
+	<complexType name="Reminder">
+		<all>
+			<element name="time" type="tns:dateTime"></element>
+			<element name="template" type="string"></element>
+		</all>
+		<attribute name="create" type="string"></attribute>
+	</complexType>
+
+	<complexType name="ArrEntry">
+		<sequence>
+			<element name="entry" type="tns:Entry" maxOccurs="unbounded" minOccurs="1"></element>
+		</sequence>
+	</complexType>
+
+	<complexType name="Entry">
+		<all>
+			<element name="customer_id" type="long"></element>
+			<element name="associate_id" type="long"></element>
+			<element name="status" type="string"></element>
+		</all>
+	</complexType>
+
+</schema>

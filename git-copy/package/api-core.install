@@ -1,0 +1,14 @@
+apiController   /home/capillary/coderoot/www/api
+api_service.php /home/capillary/coderoot/www/api
+emulator.php    /home/capillary/coderoot/www/api
+README          /home/capillary/coderoot/www/api
+user_subscription_service.php /home/capillary/coderoot/www/api
+wshandler.php   /home/capillary/coderoot/www/api
+incoming.php    /home/capillary/coderoot/www/api
+apiModel        /home/capillary/coderoot/www/api
+controller      /home/capillary/coderoot/www/api
+module          /home/capillary/coderoot/www/api
+passbook_service.php /home/capillary/coderoot/www/api
+tally_service.php /home/capillary/coderoot/www/api
+web_service.php /home/capillary/coderoot/www/api
+.htaccess       /home/capillary/coderoot/www/api
