@@ -1,3 +1,0 @@
-#! /bin/bash
-
-muspystache /etc/region.conf /etc/capillary/api/api-config.ini.template /etc/capillary/api/api-config.ini

@@ -1,8 +1,0 @@
-K 13
-svn:mergeinfo
-V 379
-/releases/api/tags/1.10.0/source/apiModel/class.ApiGoodwillRequestModelExtension.php:61891-62365
-/releases/api/tags/1.11/source/apiModel/class.ApiGoodwillRequestModelExtension.php:65982-66138
-/releases/api/tags/1.7/source/apiModel/class.ApiGoodwillRequestModelExtension.php:56925-61364
-/releases/api/tags/1.9/source/apiModel/class.ApiGoodwillRequestModelExtension.php:61367-62095
-END

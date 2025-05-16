@@ -1,4 +1,0 @@
-store_partitioned_bucket = test_files_cache
-capillary_client_user_agents[] = Clienteling_NET_V1.0 888
-validation_code_mock_mode = false
-mock_mode = true
