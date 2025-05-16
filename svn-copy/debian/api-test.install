@@ -1,0 +1,3 @@
+test   $DH_WWW/api
+phpunit.xml	$DH_WWW/api	
+test/conf/api-config.ini        /etc/capillary/api/

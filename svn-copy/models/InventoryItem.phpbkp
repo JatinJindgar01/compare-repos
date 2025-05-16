@@ -1,0 +1,276 @@
+<?php
+
+/**
+ * @author class
+ *
+ * The defines all the inventory items records in the DB. The table is more of a meta data
+ * The linked table is user_management.inventory_items
+ */
+class InventoryItem {
+
+	protected $db_user;
+	protected $logger;
+	protected $current_user_id;
+	protected $current_org_id;
+
+	protected $item_id;
+	protected $inventory_attribute_id;
+	protected $inventory_attribute_value_id;
+	
+	public $inventoryAttribute;
+	public $inventoryAttributeValue;
+
+	protected $iterableMembers;
+
+	public function __construct($current_org_id, $current_user_id, $logger)
+	{
+		// setting the loggers
+		$this->logger = &$logger;
+
+		// current user
+		$this->current_user_id = $current_user_id;
+
+		// current org
+		$this->current_org_id = $current_org_id;
+
+		// db connection
+		$this->db_user = new Dbase( 'users' );
+
+		$this->iterableMembers = array(
+			"item_id",
+			"inventory_attribute_id",
+			"inventory_attribute_value_id",
+		);
+	}
+	public function getItemId()
+	{
+	    return $this->item_id;
+	}
+
+	public function setItemId($item_id)
+	{
+	    $this->item_id = $item_id;
+	}
+
+	public function getInventoryAttributeId()
+	{
+	    return $this->inventory_attribute_id;
+	}
+
+	public function setInventoryAttributeId($inventory_attribute_id)
+	{
+	    $this->inventory_attribute_id = $inventory_attribute_id;
+	}
+
+	public function getInventoryAttributeValueId()
+	{
+	    return $this->inventory_attribute_value_id;
+	}
+
+	public function setInventoryAttributeValueId($inventory_attribute_value_id)
+	{
+	    $this->inventory_attribute_value_id = $inventory_attribute_value_id;
+	}
+
+	public function save()
+	{
+//		if(!$this->validate())
+//		{
+//			$this->logger->debug("Validation has failed, returning now");
+//			return;
+//		}
+
+		$columns["item_id"]= $this->item_id;
+		$columns["attribute_id"]= $this->inventory_attribute_id;
+		$columns["attribute_value_id"]= $this->inventory_attribute_value_id;
+		
+		// new user
+		$this->logger->debug("Item id is not set, so its going to be an insert query");
+		$columns["org_id"]= $this->current_org_id;
+
+		$sql = "INSERT IGNORE INTO user_management.inventory_items ";
+		$sql .= "\n (". implode(",", array_keys($columns)).") ";
+		$sql .= "\n VALUES ";
+		$sql .= "\n (". implode(",", $columns).") ";
+		$sql .= "\n ON DUPLICATE KEY UPDATE attribute_value_id= VALUES(attribute_value_id) ";
+		$newId = $this->db_user->insert($sql);
+
+		$this->logger->debug("Return of saving the inventory masters is $newId");
+
+		if($newId)
+			return true;
+	}
+
+	/*
+	 * Validate ann the saves and updates.
+	* TODO: add the validators
+	*/
+	protected function validate()
+	{
+		return true;
+	}
+
+	/*
+	 * Load all the data into object based on the filters being passed.
+	* It should optionally decide whether entire dependency tree is required or not
+	*/
+	public function loadAll($filters = null)
+	{
+		if(isset($filters) && !($filters instanceof InventoryItemLoadFilters))
+		{
+			throw new ApiException(ApiException::INVALID_FILTER_PASSED);
+			return false;
+		}
+			
+			
+		$this->logger->debug("Get all users based on the filters");
+
+		$sql = "SELECT
+		ii.item_id as item_id,
+		
+		iia.id as inventory_attribute_id,
+		iia.name as name,
+		iia.is_enum as is_enum,
+		iia.extraction_rule_type as extraction_rule_type,
+		iia.extraction_rule_data as extraction_rule_data,
+		iia.`type` as `type`,
+		iia.is_soft_enum as is_soft_enum,
+		iia.use_in_dump as use_in_dump,
+		iia.default_attribute_value_id as default_attribute_value_id,
+		
+		iav.id as inventory_attribute_value_id,
+		iav.value_name as value_name,
+		iav.value_code as value_code
+		
+		FROM user_management.inventory_items ii
+		INNER JOIN user_management.inventory_item_attributes as iia
+		ON iia.id = ii.attribute_id and iia.org_id = ii.org_id
+		INNER JOIN user_management.inventory_item_attribute_values as iav
+		ON iav.id = ii.attribute_value_id and iav.org_id = ii.org_id
+		WHERE ii.org_id = $this->current_org_id
+		";
+
+		if($filters->item_id)
+			$sql .= " AND ii.item_id= ".$filters->item_id;
+		if($filters->inventory_attribute_id)
+			$sql .= " AND iia.id= ".$filters->inventory_attribute_id;
+		if($filters->inventory_attribute_value_id)
+			$sql .= " AND iav.id= ".$filters->inventory_attribute_value_id;
+		
+		$sql .= " ORDER BY ii.id desc, iia.id asc ";
+			
+		if($filters->limit>0 && $filters->limit<1000)
+			$limit = intval($filters->limit);
+		else
+			$limit = 100;
+
+		if($filters->offset>0 )
+			$offset = intval($filters->offset);
+		else
+			$offset = 0;
+
+		$sql = $sql . " LIMIT $offset, $limit";
+
+		// TODO: add more filters here
+		$array = $this->db_user->query($sql);
+
+		if($array)
+		{
+
+			$ret = array();
+			foreach($array as $row)
+			{
+				$obj = new InventoryItem($this->current_org_id, $this->current_user_id, $this->logger);
+				$obj->loadFromArray($row);
+				$ret[] = $obj;
+				
+				// adding to cache
+				//$this->saveToCache(LoyaltyCustomer::CACHE_KEY_PREFIX.$obj->getUserId(), $obj->toString());
+			}
+			
+			$this->logger->debug("Successfully loaded the data and returned ". count($array). " rows");
+			return $ret;
+
+		}
+
+		throw new ApiException(ApiException::NO_DATA_FOUND);
+		$this->logger->debug("No matches found");
+		return false;
+
+	}
+	
+
+	/*
+	 * set the array from an array received from the select query 
+	 */
+	public function loadFromArray($array){
+	
+		foreach($this->iterableMembers as $key)
+			if(isset($array[$key]))
+				$this->$key = $array[$key];
+		
+		// loading the attributes and values object
+		$this->initiateDependentObject('inventoryAttribute');
+		$this->initiateDependentObject('inventoryAttributeValue');
+		
+		$this->inventoryAttribute->loadFromArray($array);
+		$this->inventoryAttributeValue->loadFromArray($array);
+	}
+	
+	public function formatToArray()
+	{
+		$array = array();
+		foreach($this->iterableMembers as $key)
+			$array[$key] = $this->$key;
+			
+		return $array;
+	}
+
+	/**
+	 * initiate the respective class on demand
+	 * @param $memberName - the object need to be initialized
+	 */
+	private function initiateDependentObject($memberName)
+	{
+		$this->logger->debug("Lazy loading the $memberName object");
+	
+		switch(strtolower($memberName))
+		{
+	
+			case 'inventoryattribute':
+				if(!$this->transaction instanceof InventoryAttribute)
+				{
+					include_once 'models/InventoryAttribute.php';
+					$this->inventoryAttribute = new InventoryAttribute($this->current_org_id, $this->user_id, $this->logger);
+					$this->logger->debug("Loaded the member");
+				}
+				break;
+	
+			case 'inventoryattributevalue':
+				if(!$this->inventoryAttributeValue instanceof InventoryAttributeValue)
+				{
+					include_once 'models/InventoryAttributeValue.php';
+					$this->inventoryAttributeValue = new InventoryAttributeValue($this->current_org_id, $this->user_id, $this->logger);
+					$this->logger->debug("Loaded the member");
+				}
+				break;
+	
+			default:
+				$this->logger->debug("Requested member could not be resolved");
+				throw new ApiException(ApiException::LAZY_LOAD_CLASS_NOT_FOUND);
+					
+		}
+	
+	}
+}
+
+class InventoryItemLoadFilters
+{
+	public $item_id;
+	public $inventory_attribute_id;
+	public $inventory_attribute_value_id;
+	
+	public $limit = 1000;
+	public $offset = 0;
+	
+}

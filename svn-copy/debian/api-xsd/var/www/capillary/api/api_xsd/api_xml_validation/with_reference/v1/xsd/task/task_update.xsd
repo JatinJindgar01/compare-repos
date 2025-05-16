@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.capillarytech.com/api" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.capillarytech.com/api" xmlns:pref="http://www.capillarytech.com/common">
+
+    <import schemaLocation="../common.xsd" namespace="http://www.capillarytech.com/common"></import>
+    <element name="root">
+    	<complexType>
+    		<sequence>
+    			<element name="task" type="tns:Task" maxOccurs="unbounded" minOccurs="1"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+
+    <complexType name="Task">
+        <all>
+            <element name="id" type="string"></element>
+            
+            <!-- START tags for update entry -->
+            <element name="entry_id" type="long"></element>
+            <element name="customer_id" type="long"></element>
+            <element name="associate_id" type="long"></element>
+            <element name="status" type="string"></element>
+            <!-- END tags for update entry -->
+            
+            <!-- START tags for update Metadata -->
+            <element name="title" type="string" maxOccurs="1" minOccurs="0"></element>
+            <element name="body" type="string" maxOccurs="1" minOccurs="0"></element>
+            <element name="start_date" type="pref:dateTime" maxOccurs="1"
+                minOccurs="0">
+            </element>
+            <element name="end_date" type="pref:dateTime" maxOccurs="1"
+                minOccurs="0">
+            </element>
+            <element name="expiry_date" type="pref:dateTime" maxOccurs="1"
+                minOccurs="0">
+            </element>
+            <element name="action_type" type="string" maxOccurs="1" minOccurs="0"></element>
+            <element name="action_template" type="string" maxOccurs="1" minOccurs="0"></element>
+            <element name="executable_by_ids" type="string" maxOccurs="1" minOccurs="0"></element>
+            <element name="tags" type="string" maxOccurs="1" minOccurs="0"></element>
+            <!--  END tags for update Metadata -->
+            
+        </all>
+    </complexType>
+
+<!--     <complexType name="Task"> -->
+<!--     	<sequence> -->
+<!--     		<element name="id" type="string"></element> -->
+<!--     		<choice> -->
+<!-- 	    		<group ref="tns:UpdateEntry"></group> -->
+<!-- 	    		<group ref="tns:UpdateMetadata"></group> -->
+<!--     		</choice> -->
+<!--     	</sequence> -->
+<!--     </complexType> -->
+
+<!--     <group name="UpdateEntry"> -->
+<!--     	<sequence> -->
+<!--     	    START tags for update entry -->
+<!--     	    <element name="entry_id" type="long"></element> -->
+<!--     	    <element name="customer_id" type="long"></element> -->
+<!--     	    <element name="associate_id" type="long"></element> -->
+<!--     	    <element name="status" type="string"></element> -->
+<!--             END tags for update entry -->
+<!--     	</sequence> -->
+<!--     </group> -->
+
+<!--     <group name="UpdateMetadata"> -->
+<!--     	<sequence> -->
+<!--     	    START tags for update Metadata -->
+<!--             <element name="title" type="string" maxOccurs="1" minOccurs="0"></element> -->
+<!--             <element name="body" type="string" maxOccurs="1" minOccurs="0"></element> -->
+<!--             <element name="start_date" type="pref:dateTime" maxOccurs="1" -->
+<!--             	minOccurs="0"> -->
+<!--             </element> -->
+<!--             <element name="end_date" type="pref:dateTime" maxOccurs="1" -->
+<!--             	minOccurs="0"> -->
+<!--             </element> -->
+<!--             <element name="expiry_date" type="pref:dateTime" maxOccurs="1" -->
+<!--             	minOccurs="0"> -->
+<!--             </element> -->
+<!--             <element name="action_type" type="string" maxOccurs="1" minOccurs="0"></element> -->
+<!--             <element name="action_template" type="string" maxOccurs="1" minOccurs="0"></element> -->
+<!--             <element name="executable_by_ids" type="string" maxOccurs="1" minOccurs="0"></element> -->
+<!--             <element name="tags" type="string" maxOccurs="1" minOccurs="0"></element> -->
+<!--              END tags for update Metadata -->
+<!--     	</sequence> -->
+<!--     </group> -->
+</schema>

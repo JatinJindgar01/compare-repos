@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit colors="false">         
+    <php>
+        <ini name="memory_limit" value="2047M" />
+    </php>
+    <testsuit name="ApiAllTests">
+	<directory>test/resource</directory>
+    </testsuit>
+    <filter>
+    	<whitelist>
+    		<directory>./</directory>
+		<exclude>
+			<file>./api_service.php</file>
+			<file>./tally_service.php</file>
+			<file>./user_subscription_service.php</file>
+			<file>./web_service.php</file>
+			<file>./passbook_service.php</file>
+			<file>./emulator.php</file>
+			<file>./incoming.php</file>
+			<file>./wshandler.php</file>
+			<directory>./testClients</directory>
+			<directory>./models</directory>
+		</exclude>
+    	</whitelist>
+    </filter>
+</phpunit>

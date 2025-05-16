@@ -1,0 +1,11 @@
+Package: api-xsd
+Source: api
+Version: 1.24.0~20250515203840.10
+Architecture: all
+Maintainer: API DEV <api-dev@capillarytech.com>
+Installed-Size: 234
+Section: unknown
+Priority: extra
+Homepage: <insert the upstream URL, if relevant>
+Description: XSDs for APIs
+ This package contains XSDs which are used to validate input/output XMLs in APIs

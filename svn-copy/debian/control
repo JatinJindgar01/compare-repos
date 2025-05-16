@@ -1,0 +1,51 @@
+Source: api
+Section: unknown
+Priority: extra
+Maintainer: API DEV <api-dev@capillarytech.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.2
+Homepage: <insert the upstream URL, if relevant>
+
+Package: api-core
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Core API Classes
+ Classes for API Core
+
+Package: api-resource
+Architecture: all
+Description: REST Resources of APIs
+ API restful resources
+
+Package: api-helper
+Architecture: all
+Description: Helper classes for APIs
+ Helper API classes
+
+Package: api-xsd
+Architecture: all
+Description: XSDs for APIs
+ This package contains XSDs which are used to validate input/output XMLs in APIs
+
+Package: api-models
+Architecture: all
+Description: Models for APIs
+ This package contains models which will used in the APIs to interact with DB or all other data source
+
+Package: api-conf
+Architecture: all
+Replaces: api-test
+Description: Static config 
+ Static config file for API packages
+
+Package: api
+Architecture: all
+Depends: api-core(>=${source:Version}), api-resource(>=${source:Version}), api-helper(>=${source:Version}), api-conf, api-xsd, api-models(>=${source:Version}), cc-a2vhosts-api, cc-rsyslog-sender
+Description: Top API Package
+ This is meta package to install complete api 
+
+Package: api-test
+Architecture: all
+Depends: api
+Description: Api test suite
+ API Test suite

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.capillarytech.com/api" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.capillarytech.com/api">
+
+    <simpleType name="dateTime">
+        <restriction base="string">
+            <pattern value="(\d{4})-([0,1][0-9])-([0-3][0-9]) ([0-2][0-9]):([0-5][0-9]):([0-5][0-9])"></pattern>
+        </restriction>
+    </simpleType>
+
+    <complexType name="SMS">
+    	<all>
+    		<element name="to" type="string"></element>
+    		<element name="body" type="string"></element>
+    		<element name="scheduled_time" type="tns:dateTime"></element>
+    		<element name="sender" type="string"></element>
+    	</all>
+    </complexType>
+    
+    <element name="root">
+    	<complexType>
+    		<sequence>
+    			<element name="sms" type="tns:SMS" maxOccurs="unbounded" minOccurs="1"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+</schema>

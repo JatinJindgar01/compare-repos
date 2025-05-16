@@ -1,0 +1,105 @@
+<wsdl:description xmlns:wsdl="http://www.w3.org/ns/wsdl" xmlns:wsoap="http://www.w3.org/ns/wsdl/soap" xmlns:whttp="http://www.w3.org/ns/wsdl/http" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://new.webservice.namespace" targetNamespace="http://new.webservice.namespace">
+	
+	<wsdl:types>
+		<xs:schema xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" elementFormDefault="qualified">
+		
+			<xs:element name="CouponIsRedeemable" type="CouponIsRedeemableRequest"/>		
+			<xs:element name="response" type="CouponIsRedeemableResponse"/>
+			<xs:element name="Authorization" type="xs:string"/>
+			
+			<xs:simpleType name="Date">
+		        <xs:restriction base="xs:string">
+		            <xs:pattern value="(\d{4})-([0,1][0-9])-([0-3][0-9])"></xs:pattern>
+		        </xs:restriction>
+		    </xs:simpleType>
+			
+			<xs:complexType name="CouponIsRedeemableRequest">
+				<xs:all>
+					<xs:element name="mobile" type="xs:string" minOccurs="0" />
+					<xs:element name="code" type="xs:string" minOccurs="0" />
+					<xs:element name="details" type="xs:boolean" minOccurs="0" />
+					<xs:element name="user_id" type="xs:boolean" minOccurs="0" />
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="CouponIsRedeemableResponse">
+				<xs:sequence>
+					<xs:element name="status" type="Status" minOccurs="0"/>
+					<xs:element name="coupons" type="ArrResponseRedeemable" minOccurs="0"/>
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="ArrResponseRedeemable">
+				<xs:sequence>
+					<xs:element name="redeemable" type="ResponseRedeemable" minOccurs="0" maxOccurs="unbounded" />
+				</xs:sequence>
+			</xs:complexType>
+			
+			<xs:complexType name="ResponseRedeemable">
+				<xs:all>
+					<xs:element name="mobile" type="xs:string" minOccurs="0" />
+					<xs:element name="code" type="xs:string" minOccurs="0" />
+					<xs:element name="is_redeemable" type="xs:boolean" minOccurs="0" />
+					<xs:element name="item_status" type="Status" minOccurs="1" />
+					<xs:element name="series_info" type="SeriesInfo" minOccurs="0" />
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="SeriesInfo">
+				<xs:all>
+					<xs:element name="description" type="xs:string" minOccurs="0" />
+					<xs:element name="discount_code" type="xs:string" minOccurs="0" />
+					<xs:element name="valid_till" type="Date" minOccurs="0" />
+					<xs:element name="discount_type" type="xs:string" minOccurs="0" />
+					<xs:element name="discount_value" type="xs:double" minOccurs="0" />
+					<xs:element name="discount_on" type="xs:string" minOccurs="0" />
+					<xs:element name="detailed_info" type="xs:string" minOccurs="0" />
+				</xs:all>
+			</xs:complexType>
+			
+			<xs:complexType name="Status">
+				<xs:sequence>
+					<xs:element name="success" type="xs:boolean" minOccurs="0" />
+					<!-- in v1 for coupon/isredeemable element item_status/success is item_status/status 
+						so adding this element and marking it as optional -->
+					<xs:element name="status" type="xs:boolean" minOccurs="0"/>
+					<xs:element name="code" type="xs:integer" minOccurs="1" />
+					<xs:element name="message" type="xs:string" minOccurs="1" />
+				</xs:sequence>
+			</xs:complexType>			
+			
+		</xs:schema>
+	</wsdl:types>
+	
+	<wsdl:interface name="CouponIsRedeemableInterface">
+		<wsdl:operation name="CouponIsRedeemable" 
+			pattern="http://www.w3.org/ns/wsdl/in-out">
+				<wsdl:input messageLabel="In" element="CouponIsRedeemable"/>
+				<wsdl:output messageLabel="Out" element="response"/>
+		</wsdl:operation>
+	</wsdl:interface>
+	
+	<wsdl:binding name="CouponIsRedeemableBinding" 
+		interface="tns:CouponIsRedeemableInterface" 
+		type="http://www.w3.org/ns/wsdl/http">
+			<wsdl:operation ref="tns:CouponIsRedeemable"
+				whttp:location="/v1/coupon/isredeemable?format=xml" 
+				whttp:method="GET" 
+				whttp:queryParameterSeparator="&amp;" 
+				whttp:inputSerialization="application/x-www-form-urlencoded"
+				whttp:outputSerialization="application/xml" >
+					<wsdl:input messageLabel="In" >
+						<whttp:header name="Authorization" type="Authorization" required="true" />
+					</wsdl:input>
+			</wsdl:operation>
+	</wsdl:binding>
+
+	<wsdl:service name="CouponIsRedeemableService" 
+		interface="tns:CouponIsRedeemableInterface">
+			<wsdl:endpoint name="CouponIsRedeemableEndPoint" 
+				binding="tns:CouponIsRedeemableBinding" 
+				address="http://testing.capillary.in"/>
+	</wsdl:service>
+	
+</wsdl:description>
+

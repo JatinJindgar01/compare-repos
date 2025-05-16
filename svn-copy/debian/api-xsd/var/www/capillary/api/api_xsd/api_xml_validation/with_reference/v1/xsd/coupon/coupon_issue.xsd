@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://www.capillarytech.com/api"
+	elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema"
+	xmlns:tns="http://www.capillarytech.com/api" xmlns:pref="http://www.capillarytech.com/common">
+	<import schemaLocation="../common.xsd" namespace="http://www.capillarytech.com/common"></import>
+
+	<complexType name="Coupon">
+		<all>
+			<element name="series_id" type="string"></element>
+			<element name="customer" type="pref:CustomerIdentifiers"></element>
+		</all>
+	</complexType>
+	
+    <element name="root">
+    	<complexType>
+    		<sequence>
+    			<element name="coupon" type="tns:Coupon"></element>
+    		</sequence>
+    	</complexType>
+    </element>
+</schema>

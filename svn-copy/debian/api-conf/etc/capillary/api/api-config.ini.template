@@ -1,0 +1,11 @@
+store_partitioned_bucket = {{STORE_PARTITIONED_BUCKET}}
+capillary_client_user_agents[] = Clienteling_NET_V1.0 888
+validation_code_mock_mode = false
+batch_limit = 100
+conquest_api_endpoint = "http://{{INTOUCH_ENDPOINT}}/conquestapi/organization/"
+conquest_base_url = "http://{{INTOUCH_ENDPOINT}}/conquestapi/"
+conquest_api_key = "Y2FwaWxsYXJ5LXBsYXRmb3Jtczo2ZDQ1YWFlNDUyYmQxMWUzYjdmMmY3ZTM1NTAyMTAxMg=="
+authenticated_api_keys[] = "Qjc0M0ExMDE0MDBBMTUzRDVFRTVFNDI0N0Q5QzAxOEI="
+authenticated_api_keys[] = "ZWUwOWRkNTA4N2MxOGYzZTk4ZmIzOTYzZDEzNjA3NDI="
+STORECARE_BASE_URL={{STORECARE_BASE_URL}}
+morning_files_bucket={{FILESYNC_S3_BUCKET}}
