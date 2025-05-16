@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/api_xsd/api_xml_validation/with_reference/v1/xsd/task
+END
+task_add.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/api_xsd/api_xml_validation/with_reference/v1/xsd/task/task_add.xsd
+END
+task_status_mapping.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/api_xsd/api_xml_validation/with_reference/v1/xsd/task/task_status_mapping.xsd
+END
+task_reminder.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 123
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/api_xsd/api_xml_validation/with_reference/v1/xsd/task/task_reminder.xsd
+END
+task_update.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/api_xsd/api_xml_validation/with_reference/v1/xsd/task/task_update.xsd
+END

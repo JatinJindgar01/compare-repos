@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/stores
+END
+StoresGetTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/stores/StoresGetTest.php
+END
+StoresConfigurationTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/stores/StoresConfigurationTest.php
+END
+ApiStoresResourceTestBase.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/stores/ApiStoresResourceTestBase.php
+END
+StoresTasksTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/stores/StoresTasksTest.php
+END
+StoresReportsTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/stores/StoresReportsTest.php
+END
+StoresStaffTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/stores/StoresStaffTest.php
+END

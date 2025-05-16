@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/tenders
+END
+ApiTendersResourceTestBase.php
+K 25
+svn:wc:ra_dav:version-url
+V 104
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/tenders/ApiTendersResourceTestBase.php
+END
+TendersGetTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/tenders/TendersGetTest.php
+END
+TendersAddTransactionTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 103
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/tenders/TendersAddTransactionTest.php
+END

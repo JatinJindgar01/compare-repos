@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/coupon
+END
+ResendTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/coupon/ResendTest.php
+END
+ApiCouponResourceTestBase.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/coupon/ApiCouponResourceTestBase.php
+END
+IsRedeemableTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/coupon/IsRedeemableTest.php
+END
+CouponGetTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/coupon/CouponGetTest.php
+END

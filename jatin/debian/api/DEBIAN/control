@@ -1,9 +1,9 @@
 Package: api
-Version: 1.24.0~20250515203840.10
+Version: 1.23.0~20231201071834.svn.1822
 Architecture: all
 Maintainer: API DEV <api-dev@capillarytech.com>
-Installed-Size: 28
-Depends: api-core (>= 1.24.0~20250515203840.10), api-resource (>= 1.24.0~20250515203840.10), api-helper (>= 1.24.0~20250515203840.10), api-conf, api-xsd, api-models (>= 1.24.0~20250515203840.10), cc-a2vhosts-api, cc-rsyslog-sender
+Installed-Size: 45
+Depends: api-core (>= 1.23.0~20231201071834.svn.1822), api-resource (>= 1.23.0~20231201071834.svn.1822), api-helper (>= 1.23.0~20231201071834.svn.1822), api-conf, api-xsd, api-models (>= 1.23.0~20231201071834.svn.1822), cc-a2vhosts-api, cc-rsyslog-sender
 Section: unknown
 Priority: extra
 Homepage: <insert the upstream URL, if relevant>

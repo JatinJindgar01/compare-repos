@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/api_xsd/api_xml_validation/with_reference/v1/xsd/transaction
+END
+transaction_not_interested.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 143
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/api_xsd/api_xml_validation/with_reference/v1/xsd/transaction/transaction_not_interested.xsd
+END
+transaction_regular_add.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 140
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/api_xsd/api_xml_validation/with_reference/v1/xsd/transaction/transaction_regular_add.xsd
+END
+transaction_return_add.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 139
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/api_xsd/api_xml_validation/with_reference/v1/xsd/transaction/transaction_return_add.xsd
+END

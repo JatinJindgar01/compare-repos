@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/capillary/dealhunt/!svn/ver/118900/coderoot/www/api/apiHelper/resourceFormatter
+END
+OrgTenderAttributeFormatter.php
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/capillary/dealhunt/!svn/ver/118900/coderoot/www/api/apiHelper/resourceFormatter/OrgTenderAttributeFormatter.php
+END
+TenderFormatter.php
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/resourceFormatter/TenderFormatter.php
+END
+BaseFormatter.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/resourceFormatter/BaseFormatter.php
+END
+ResourceFormatterFactory.php
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/resourceFormatter/ResourceFormatterFactory.php
+END
+TenderAttributeFormatter.php
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/resourceFormatter/TenderAttributeFormatter.php
+END
+OrgTenderFormatter.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/resourceFormatter/OrgTenderFormatter.php
+END

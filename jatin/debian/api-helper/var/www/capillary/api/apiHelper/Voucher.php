@@ -1,6 +1,7 @@
 
 <?php
 include_once 'helper/coupons/CouponManager.php';
+include_once 'luci-php-sdk/LuciClient.php' ;
 
 define("VOUCHER_ERR_NOT_TRANSFERRABLE", "-10, Voucher is not meant for this user");
 define("VOUCHER_ERR_ALREADY_USED", "-20, Voucher is already used");
@@ -679,6 +680,27 @@ class Voucher extends Base {
 	}
 
 
+    	private function initData($data) {
+
+    		$this->series_id = $data->couponSeriesId;
+    		$this->vch_series 	= new VoucherSeries($data->couponSeriesId);
+    		$this->issued_to	= $data->issuedToUserId;
+    		$this->created_date = strtotime(Util::convertTimeToCurrentOrgTimeZone(date("Y-m-d H:i:s", ($data->createdDate/1000))));
+    		$this->voucher_code = $data->couponCode;
+    		$this->org_id 		= $data->orgId;
+    		$this->voucher_id 	= $data->id;
+    	}
+
+    public static function initFromData($data) {
+		$v = new Voucher();
+		if($data){
+			$v->logger->debug("Selected Voucher from id ".$data->id." ".$data->couponCode);
+			$v->initData($data);
+			return $v;
+		}
+		return NULL;
+	}
+
 
 
 	private static function initFromSql($sql) {
@@ -1053,7 +1075,7 @@ class Voucher extends Base {
 		return false;
 		
 	}
-	
+		
 	
 	function getNumOfCampaignReferrals(){
 		
@@ -1267,7 +1289,100 @@ class Voucher extends Base {
 	 * @param $max_allowed_redemptions Maximum number of redemptions to be allowed on this voucher 
 	 * @return Voucher Code of the Voucher Generated
 	 */
-	public static function issueVoucher($series_id, UserProfile $user,  $org,
+    public static function issueVoucherNew($series_id, UserProfile $user,  $org,
+    		 $created_by, $voucher_code = NULL, $created_date = '',
+    		 $allow_multiple_vouchers = false, $amount = '',
+    		 $bill_number = '', $max_allowed_redemptions = '',
+    		 $issued_at_counter_id = '-1',
+    		 $rule_map = '', $pin_code = '', $return_details = false
+    	){
+    		/*
+    		* NOTE : Please modify issueMultipleVouchers accordingly
+    		*/
+    		global $logger;
+    		$startTime = time() ;
+    		$logger->debug('In issueVoucherNew') ;
+
+    		try{
+    			$logger -> error("Loading coupon series with ID $series_id") ;
+    			$couponSeriesManager = new CouponSeriesManager() ;
+    			//Don't know where this is coming from: $couponSeriesManager->loadById( $voucher_series_id ) ;
+    			$couponSeriesManager->loadById( $series_id ) ;
+
+    		}catch(Exception $ex){
+    			$logger->error("Exception code: ".$ex->getCode()." and message : ".$ex->getMessage()." proceeding with older flow") ;
+    		}
+
+    		return self::issueLuciVoucher($series_id, $user->user_id,  $org->org_id, $created_by, $voucher_code, $created_date , $pin_code , $return_details) ;
+    	}
+
+    	private static function issueLuciVoucher($series_id, $user_id,  $org_id, $created_by, $voucher_code, $created_date , $pin_code, $return_details = false){
+
+        		global $logger ;
+        		$logger->debug("in issueLuciVoucher") ;
+        		$issueCouponRequest = new luci_IssueCouponRequest() ;
+        		$issueCouponRequest->requestId = Util::getServerUniqueRequestId() ;
+        		$issueCouponRequest->orgId = $org_id ;
+        		$issueCouponRequest->couponSeriesId = $series_id ;
+        		$issueCouponRequest->storeUnitId = $created_by ;
+        		$issueCouponRequest->userId = $user_id ;
+        		if($created_date == "")
+        			$created_date = strtotime(date('Y-m-d H:i:s'))  * 1000; //passing milliseconds
+        		$logger->debug("created date passed is  : ".$created_date) ;
+        		$issueCouponRequest->eventTimeInMillis =  $created_date;
+        		$logger -> debug("Voucher.php -> issueLuciVoucher() :: Request payload: " .
+        				print_r($issueCouponRequest, true));
+
+        		$luciClient = new LuciSdk\LuciClient() ;
+        		try{
+        			//call luci client to get voucher
+        			$coupon_details = $luciClient->issueCoupon($issueCouponRequest) ;
+
+        			if ($return_details) {
+        				return $coupon_details;
+        			} else {
+        				return $coupon_details->couponCode;
+        			}
+        		}catch(luci_LuciThriftException $ex){
+        			$logger->error("luci thrift exception code : ".$ex->errorCode." and message : ".$ex->errorMsg) ;
+        			$exceptionCode = LuciExceptionMapping::getShopbookExceptionCode($ex->errorCode) ;
+        			throw new Exception($ex->errorMsg,$exceptionCode) ;
+        		}catch(Exception $ex){
+        			$logger->error("exception code : ".$ex->getCode()." and message : ".$ex->getMessage()) ;
+        			$exceptionCode = LuciExceptionMapping::getShopbookExceptionCode($ex->getCode()) ;
+        			throw new Exception($ex->getMessage(),$exceptionCode) ;
+        		}
+
+        	}
+
+    	public static function issueVoucher($series_id, UserProfile $user,  $org,
+    		 $created_by, $voucher_code = NULL, $created_date = '',
+    		 $allow_multiple_vouchers = false, $amount = '',
+    		 $bill_number = '', $max_allowed_redemptions = '',
+    		 $issued_at_counter_id = '-1',
+    		 $rule_map = '', $pin_code = '', $return_details = false
+    	){
+
+    		global $logger ;
+    		try{
+
+    			$logger->debug('In issuevoucher') ;
+    			return Voucher::issueVoucherNew($series_id, $user,  $org,
+    											 $created_by, $voucher_code , $created_date ,
+    											 $allow_multiple_vouchers , $amount ,
+    											 $bill_number , $max_allowed_redemptions ,
+    											 $issued_at_counter_id ,
+    											 $rule_map , $pin_code, $return_details) ;
+
+    		}
+    		catch(Exception $ex){
+    			$logger->debug('Exception occured in issuevoucher with code : '.$ex->getCode().' and message : '.$ex->getMessage()) ;
+    			return false ;
+    		}
+    	}
+
+
+	public static function issueVoucherold($series_id, UserProfile $user,  $org,
 		 $created_by, $voucher_code = NULL, $created_date = '', 
 		 $allow_multiple_vouchers = false, $amount = '', 
 		 $bill_number = '', $max_allowed_redemptions = '', 
@@ -1277,6 +1392,10 @@ class Voucher extends Base {
 		/*
 		* NOTE : Please modify issueMultipleVouchers accordingly
 		*/
+		if(true){
+
+		}
+
 		global $logger;
         if ($user == false) 
         {
@@ -1927,4 +2046,3 @@ class Voucher extends Base {
 }
 
 ?>
-

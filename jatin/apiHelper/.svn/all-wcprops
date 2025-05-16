@@ -1,0 +1,125 @@
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/capillary/dealhunt/!svn/ver/118910/coderoot/www/api/apiHelper
+END
+FileCachedApis.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/FileCachedApis.php
+END
+ValidationPin.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/ValidationPin.php
+END
+ApiUtil.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/capillary/dealhunt/!svn/ver/118907/coderoot/www/api/apiHelper/ApiUtil.php
+END
+ApiCacheHandler.php
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/ApiCacheHandler.php
+END
+OTPManager.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/OTPManager.php
+END
+APIWarning.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/APIWarning.php
+END
+Task.php
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/capillary/dealhunt/!svn/ver/95447/coderoot/www/api/apiHelper/Task.php
+END
+ValidationCode.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/ValidationCode.php
+END
+ClientErrorLog.php
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/ClientErrorLog.php
+END
+LineItem.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/LineItem.php
+END
+StoreProfile.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/StoreProfile.php
+END
+DataValueValidator.php
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/DataValueValidator.php
+END
+Errors.php
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/capillary/dealhunt/!svn/ver/105606/coderoot/www/api/apiHelper/Errors.php
+END
+voucher.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/capillary/dealhunt/!svn/ver/118910/coderoot/www/api/apiHelper/voucher.php
+END
+Voucher.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/capillary/dealhunt/!svn/ver/118909/coderoot/www/api/apiHelper/Voucher.php
+END
+UrlParser.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/UrlParser.php
+END
+ApiOutputHandler.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/ApiOutputHandler.php
+END
+CouponSeriesManager.php
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/CouponSeriesManager.php
+END
+ApiReqRespLog.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/ApiReqRespLog.php
+END
+AsyncAPIRequest.php
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/capillary/dealhunt/!svn/ver/102185/coderoot/www/api/apiHelper/AsyncAPIRequest.php
+END

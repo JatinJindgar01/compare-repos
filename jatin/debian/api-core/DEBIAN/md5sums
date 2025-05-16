@@ -1,8 +1,8 @@
 591c76e29a6a69c1a013bedbadd01bd4  usr/share/doc/api-core/README
 2de69e48ed856985340ef547088e3f2b  usr/share/doc/api-core/README.Debian
-00366ab72a1b9c5e1e26c127a4df5685  usr/share/doc/api-core/changelog.gz
+276e8f2bf0cf9ce37a6e61816406a20e  usr/share/doc/api-core/changelog.gz
 54ff314f875b833b099c6bcbeb287243  usr/share/doc/api-core/copyright
-03ecafdde2b501bb1be1aa97ba01185e  var/www/capillary/api/.htaccess
+6713261e1b85224069142ed477be1c1c  var/www/capillary/api/.htaccess
 591c76e29a6a69c1a013bedbadd01bd4  var/www/capillary/api/README
 78ded4c9d027f5059878564b909fad96  var/www/capillary/api/apiController/ApiAssociateController.php
 b586bdaf00bcd3311bbaf61456258857  var/www/capillary/api/apiController/ApiAsyncController.php

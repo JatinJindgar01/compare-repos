@@ -1,0 +1,173 @@
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/capillary/dealhunt/!svn/ver/118141/coderoot/www/api/apiController
+END
+ApiMobileController.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiController/ApiMobileController.php
+END
+ApiStoreTillController.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiController/ApiStoreTillController.php
+END
+ApiEntityController.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiController/ApiEntityController.php
+END
+ApiTemporalEngineController.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiController/ApiTemporalEngineController.php
+END
+ApiSegmentationEngineController.php
+K 25
+svn:wc:ra_dav:version-url
+V 101
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiController/ApiSegmentationEngineController.php
+END
+ApiCcmsController.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiController/ApiCcmsController.php
+END
+ApiInventoryController.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/capillary/dealhunt/!svn/ver/113584/coderoot/www/api/apiController/ApiInventoryController.php
+END
+ApiSearchController.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiController/ApiSearchController.php
+END
+ApiAsyncController.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiController/ApiAsyncController.php
+END
+ApiAssociateController.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiController/ApiAssociateController.php
+END
+ApiTransactionController.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/capillary/dealhunt/!svn/ver/109992/coderoot/www/api/apiController/ApiTransactionController.php
+END
+ApiZoneController.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiController/ApiZoneController.php
+END
+ApiStoreController.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/capillary/dealhunt/!svn/ver/112397/coderoot/www/api/apiController/ApiStoreController.php
+END
+ApiCampaignController.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiController/ApiCampaignController.php
+END
+ApiStoreServerController.php
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/capillary/dealhunt/!svn/ver/89076/coderoot/www/api/apiController/ApiStoreServerController.php
+END
+ApiBaseController.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiController/ApiBaseController.php
+END
+ApiStoreTaskController.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/capillary/dealhunt/!svn/ver/95447/coderoot/www/api/apiController/ApiStoreTaskController.php
+END
+ApiOrganizationController.php
+K 25
+svn:wc:ra_dav:version-url
+V 96
+/capillary/dealhunt/!svn/ver/105606/coderoot/www/api/apiController/ApiOrganizationController.php
+END
+ApiConceptController.php
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiController/ApiConceptController.php
+END
+ApiTenderController.php
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiController/ApiTenderController.php
+END
+ApiEMFServiceController.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiController/ApiEMFServiceController.php
+END
+ApiPassbookController.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiController/ApiPassbookController.php
+END
+ApiRequestController.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/capillary/dealhunt/!svn/ver/118084/coderoot/www/api/apiController/ApiRequestController.php
+END
+ApiFileController.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/capillary/dealhunt/!svn/ver/99460/coderoot/www/api/apiController/ApiFileController.php
+END
+ApiPointsEngineServiceController.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiController/ApiPointsEngineServiceController.php
+END
+ApiReferralController.php
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiController/ApiReferralController.php
+END
+ApiCommunicationsController.php
+K 25
+svn:wc:ra_dav:version-url
+V 97
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiController/ApiCommunicationsController.php
+END
+ApiCustomerController.php
+K 25
+svn:wc:ra_dav:version-url
+V 92
+/capillary/dealhunt/!svn/ver/118141/coderoot/www/api/apiController/ApiCustomerController.php
+END

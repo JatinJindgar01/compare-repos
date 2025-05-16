@@ -1,0 +1,17 @@
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/api_xsd/api_xml_validation/with_reference/v1.1/xsd/coupon
+END
+coupon_redeem.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/api_xsd/api_xml_validation/with_reference/v1.1/xsd/coupon/coupon_redeem.xsd
+END
+coupon_issue.xsd
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/api_xsd/api_xml_validation/with_reference/v1.1/xsd/coupon/coupon_issue.xsd
+END

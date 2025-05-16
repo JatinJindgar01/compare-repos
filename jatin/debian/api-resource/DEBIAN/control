@@ -1,9 +1,9 @@
 Package: api-resource
 Source: api
-Version: 1.24.0~20250515203840.10
+Version: 1.23.0~20231201071834.svn.1822
 Architecture: all
 Maintainer: API DEV <api-dev@capillarytech.com>
-Installed-Size: 745
+Installed-Size: 768
 Section: unknown
 Priority: extra
 Homepage: <insert the upstream URL, if relevant>

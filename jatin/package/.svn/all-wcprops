@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/package
+END
+packname
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/package/packname
+END
+version
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/package/version
+END
+buildpack.sh
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/package/buildpack.sh
+END
+api-resource.install
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/package/api-resource.install
+END
+api-helper.install
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/package/api-helper.install
+END
+api-core.install
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/package/api-core.install
+END

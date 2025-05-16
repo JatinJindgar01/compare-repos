@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/organization
+END
+OrganizationEntitiesTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/organization/OrganizationEntitiesTest.php
+END
+OrganizationConfigTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/organization/OrganizationConfigTest.php
+END
+OrganizationStatisticsTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/organization/OrganizationStatisticsTest.php
+END
+ApiOrganizationResourceTestBase.php
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/organization/ApiOrganizationResourceTestBase.php
+END
+OrganizationCustomFieldsTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/organization/OrganizationCustomFieldsTest.php
+END
+OrganizationTopItemsTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 107
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/organization/OrganizationTopItemsTest.php
+END
+OrganizationCustomersTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 108
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/organization/OrganizationCustomersTest.php
+END
+OrganizationGetTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/organization/OrganizationGetTest.php
+END

@@ -1,0 +1,65 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/resourceFormatter/inventory
+END
+InventoryAttributeGetApiFormatter.php
+K 25
+svn:wc:ra_dav:version-url
+V 127
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/resourceFormatter/inventory/InventoryAttributeGetApiFormatter.php
+END
+InventoryMetaSizeFormatter.php
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/resourceFormatter/inventory/InventoryMetaSizeFormatter.php
+END
+InventoryAttributeValueFormatter.php
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/resourceFormatter/inventory/InventoryAttributeValueFormatter.php
+END
+InventoryAttributeFormatter.php
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/resourceFormatter/inventory/InventoryAttributeFormatter.php
+END
+InventoryMasterFormatter.php
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/resourceFormatter/inventory/InventoryMasterFormatter.php
+END
+InventorySizeFormatter.php
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/resourceFormatter/inventory/InventorySizeFormatter.php
+END
+InventoryBrandFormatter.php
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/resourceFormatter/inventory/InventoryBrandFormatter.php
+END
+InventoryCategoryFormatter.php
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/resourceFormatter/inventory/InventoryCategoryFormatter.php
+END
+InventoryColorFormatter.php
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/resourceFormatter/inventory/InventoryColorFormatter.php
+END
+InventoryStyleFormatter.php
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/apiHelper/resourceFormatter/inventory/InventoryStyleFormatter.php
+END

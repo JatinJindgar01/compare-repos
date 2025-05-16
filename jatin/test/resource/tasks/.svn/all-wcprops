@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/tasks
+END
+TasksGetTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/tasks/TasksGetTest.php
+END
+TaskStatusAddTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/tasks/TaskStatusAddTest.php
+END
+TaskReminderAddTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/tasks/TaskReminderAddTest.php
+END
+TaskAddTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/tasks/TaskAddTest.php
+END
+TaskStatusGetTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 93
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/tasks/TaskStatusGetTest.php
+END
+ApiTasksResourceTestBase.php
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/tasks/ApiTasksResourceTestBase.php
+END

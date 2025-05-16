@@ -1,8 +1,8 @@
-api-conf_1.24.0~20250515203840.10_all.deb unknown extra
-api-core_1.24.0~20250515203840.10_all.deb unknown extra
-api-helper_1.24.0~20250515203840.10_all.deb unknown extra
-api-models_1.24.0~20250515203840.10_all.deb unknown extra
-api-resource_1.24.0~20250515203840.10_all.deb unknown extra
-api-test_1.24.0~20250515203840.10_all.deb unknown extra
-api-xsd_1.24.0~20250515203840.10_all.deb unknown extra
-api_1.24.0~20250515203840.10_all.deb unknown extra
+api-core_1.23.0~20231201071834.svn.1822_all.deb unknown extra
+api-resource_1.23.0~20231201071834.svn.1822_all.deb unknown extra
+api-helper_1.23.0~20231201071834.svn.1822_all.deb unknown extra
+api-xsd_1.23.0~20231201071834.svn.1822_all.deb unknown extra
+api-models_1.23.0~20231201071834.svn.1822_all.deb unknown extra
+api-conf_1.23.0~20231201071834.svn.1822_all.deb unknown extra
+api_1.23.0~20231201071834.svn.1822_all.deb unknown extra
+api-test_1.23.0~20231201071834.svn.1822_all.deb unknown extra

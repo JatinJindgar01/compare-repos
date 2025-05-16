@@ -1,0 +1,46 @@
+8
+
+dir
+118912
+https://capillary.sourcerepo.com/capillary/dealhunt/coderoot/www/api/services
+https://capillary.sourcerepo.com/capillary/dealhunt
+
+
+
+2018-03-28T11:47:28.864270Z
+114549
+swati.verma
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+c7ad7044-cb60-498d-a845-55a1d3ae732a
+
+PointsService.php
+file
+
+
+
+
+2020-07-28T03:49:43.000000Z
+b5b33620ac8b1d21b18df1e6faf5ef8a
+2018-03-28T11:47:28.864270Z
+114549
+swati.verma
+
+luci
+dir
+
+thrift
+dir
+

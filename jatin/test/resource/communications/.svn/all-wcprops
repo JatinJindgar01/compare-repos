@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/communications
+END
+CommunicationsSendSmsTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/communications/CommunicationsSendSmsTest.php
+END
+ApiCommunicationsResourceTestBase.php
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/communications/ApiCommunicationsResourceTestBase.php
+END
+CommunicationsSendEmailTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/communications/CommunicationsSendEmailTest.php
+END
+CommunicationsEmailGetTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/communications/CommunicationsEmailGetTest.php
+END
+CommunicationsSmsGetTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/communications/CommunicationsSmsGetTest.php
+END
+CommunicationsSaveTemplatesTest.php
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/capillary/dealhunt/!svn/ver/88964/coderoot/www/api/test/resource/communications/CommunicationsSaveTemplatesTest.php
+END

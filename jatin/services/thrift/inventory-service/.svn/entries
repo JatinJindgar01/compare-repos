@@ -1,0 +1,59 @@
+8
+
+dir
+118912
+https://capillary.sourcerepo.com/capillary/dealhunt/coderoot/www/api/services/thrift/inventory-service
+https://capillary.sourcerepo.com/capillary/dealhunt
+
+
+
+2016-01-25T08:41:00.385156Z
+91550
+jessy.james
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+c7ad7044-cb60-498d-a845-55a1d3ae732a
+
+filters
+dir
+
+resources
+dir
+
+server.php
+file
+
+
+
+
+2020-07-28T03:49:43.000000Z
+080b34434ed37bdc69528bc7b41cd74c
+2016-01-25T08:41:00.385156Z
+91550
+jessy.james
+
+test.php
+file
+
+
+
+
+2020-07-28T03:49:43.000000Z
+a5729b161be8f4b0ee0be325834c8d19
+2016-01-25T08:41:00.385156Z
+91550
+jessy.james
+has-props
+
